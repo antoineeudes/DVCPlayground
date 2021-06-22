@@ -1,0 +1,4 @@
+[core]
+    remote = gcs-bucket
+['remote "gcs-bucket"']
+    url = gs://dvc-playground-datalake
