@@ -30,52 +30,63 @@ stages:
       size: 2414
     params:
       params.yaml:
-        featurize.max_features: 10
+        featurize.max_features: 800
         featurize.ngrams: 4
     outs:
     - path: data/features
-      md5: cada674c8196325e5972734360f09ddf.dir
-      size: 1543397
+      md5: 58b41cae9dc6d69994a9dd280bd87523.dir
+      size: 9389435
       nfiles: 2
   train:
     cmd: python src/train.py data/features model.pkl
     deps:
     - path: data/features
-      md5: cada674c8196325e5972734360f09ddf.dir
-      size: 1543397
+      md5: 58b41cae9dc6d69994a9dd280bd87523.dir
+      size: 9389435
       nfiles: 2
     - path: src/train.py
       md5: 9ab95496b29b6ea3418bbf20b9fe3473
       size: 964
     params:
       params.yaml:
-        train.min_split: 12
-        train.n_est: 300
+        train.min_split: 88
+        train.n_est: 100
         train.seed: 20170428
     outs:
     - path: model.pkl
-      md5: d507281e202b0f1e10e15c703168f9c1
-      size: 11404103
+      md5: ecded4bed14ce164978909ed27e52d5c
+      size: 1975058
   evaluate:
     cmd: python src/evaluate.py model.pkl data/features scores.json prc.json roc.json
     deps:
     - path: data/features
-      md5: cada674c8196325e5972734360f09ddf.dir
-      size: 1543397
+      md5: 58b41cae9dc6d69994a9dd280bd87523.dir
+      size: 9389435
       nfiles: 2
     - path: model.pkl
-      md5: d507281e202b0f1e10e15c703168f9c1
-      size: 11404103
+      md5: ecded4bed14ce164978909ed27e52d5c
+      size: 1975058
     - path: src/evaluate.py
       md5: fb7b5209c9237ea6cf63550e5fe9b817
       size: 1943
     outs:
     - path: prc.json
-      md5: a189450f3d0dde5c2738835c9ee2aa9f
-      size: 114711
+      md5: 3bc359fae5952a4790bcd8665a70abda
+      size: 137203
     - path: roc.json
-      md5: 27f9f04065bfd52a4e346ac469361158
-      size: 59793
+      md5: 2d908d6f6e849dda59adb8385a7eb365
+      size: 41354
     - path: scores.json
-      md5: 72707aa38ec334c6ee94d21a9f61d29d
-      size: 73
+      md5: f8816c478d52030ebd137590198e1a27
+      size: 72
+  test-mnist:
+    cmd: python test_mnist.py
+    deps:
+    - path: test_mnist.py
+      md5: cece99136e94315ea0cdb9636cb68740
+      size: 1493
+    outs:
+    - path: training_metrics
+      md5: 0eae9d529a8079512860679519d2dd1e.dir
+      size: 532
+      nfiles: 4

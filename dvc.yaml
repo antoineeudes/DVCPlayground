@@ -44,3 +44,11 @@ stages:
         cache: false
     - roc.json:
         cache: false
+  test-mnist:
+    cmd: python test_mnist.py
+    deps:
+    - test_mnist.py
+    live:
+      training_metrics:
+        summary: true
+        html: true
