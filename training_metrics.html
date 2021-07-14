@@ -12,7 +12,7 @@
 <tr><th style="text-align: right;">  accuracy</th><th style="text-align: right;">    loss</th><th style="text-align: right;">  step</th><th style="text-align: right;">  val_accuracy</th><th style="text-align: right;">  val_loss</th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align: right;">  0.889467</td><td style="text-align: right;">0.421425</td><td style="text-align: right;">     2</td><td style="text-align: right;">         0.902</td><td style="text-align: right;">  0.373884</td></tr>
+<tr><td style="text-align: right;">   0.88885</td><td style="text-align: right;">0.421686</td><td style="text-align: right;">     2</td><td style="text-align: right;">        0.8995</td><td style="text-align: right;">  0.373625</td></tr>
 </tbody>
 </table>
 <br>
@@ -23,22 +23,77 @@
     "data": {
         "values": [
     {
-        "loss": "1.1082768440246582",
+        "accuracy": "0.7484166622161865",
         "rev": "workspace",
         "step": "0",
-        "timestamp": "1626289845820"
+        "timestamp": "1626295240682"
     },
     {
-        "loss": "0.5255647301673889",
+        "accuracy": "0.8707833290100098",
         "rev": "workspace",
         "step": "1",
-        "timestamp": "1626289846848"
+        "timestamp": "1626295241583"
     },
     {
-        "loss": "0.4214246869087219",
+        "accuracy": "0.8888499736785889",
         "rev": "workspace",
         "step": "2",
-        "timestamp": "1626289847747"
+        "timestamp": "1626295242529"
+    }
+]
+    },
+    "title": "",
+    "width": 300,
+    "height": 300,
+    "mark": {
+        "type": "line"
+    },
+    "encoding": {
+        "x": {
+            "field": "step",
+            "type": "quantitative",
+            "title": "step"
+        },
+        "y": {
+            "field": "accuracy",
+            "type": "quantitative",
+            "title": "accuracy",
+            "scale": {
+                "zero": false
+            }
+        },
+        "color": {
+            "field": "rev",
+            "type": "nominal"
+        }
+    }
+}
+;
+    vegaEmbed('#plot0', spec);
+</script>
+<div id = "plot1"></div>
+<script type = "text/javascript">
+    var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "values": [
+    {
+        "loss": "1.11141836643219",
+        "rev": "workspace",
+        "step": "0",
+        "timestamp": "1626295240682"
+    },
+    {
+        "loss": "0.523784339427948",
+        "rev": "workspace",
+        "step": "1",
+        "timestamp": "1626295241583"
+    },
+    {
+        "loss": "0.42168599367141724",
+        "rev": "workspace",
+        "step": "2",
+        "timestamp": "1626295242528"
     }
 ]
     },
@@ -69,61 +124,6 @@
     }
 }
 ;
-    vegaEmbed('#plot0', spec);
-</script>
-<div id = "plot1"></div>
-<script type = "text/javascript">
-    var spec = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "data": {
-        "values": [
-    {
-        "rev": "workspace",
-        "step": "0",
-        "timestamp": "1626289845821",
-        "val_accuracy": "0.8655999898910522"
-    },
-    {
-        "rev": "workspace",
-        "step": "1",
-        "timestamp": "1626289846850",
-        "val_accuracy": "0.8892999887466431"
-    },
-    {
-        "rev": "workspace",
-        "step": "2",
-        "timestamp": "1626289847748",
-        "val_accuracy": "0.9020000100135803"
-    }
-]
-    },
-    "title": "",
-    "width": 300,
-    "height": 300,
-    "mark": {
-        "type": "line"
-    },
-    "encoding": {
-        "x": {
-            "field": "step",
-            "type": "quantitative",
-            "title": "step"
-        },
-        "y": {
-            "field": "val_accuracy",
-            "type": "quantitative",
-            "title": "val_accuracy",
-            "scale": {
-                "zero": false
-            }
-        },
-        "color": {
-            "field": "rev",
-            "type": "nominal"
-        }
-    }
-}
-;
     vegaEmbed('#plot1', spec);
 </script>
 <div id = "plot2"></div>
@@ -135,20 +135,20 @@
     {
         "rev": "workspace",
         "step": "0",
-        "timestamp": "1626289845820",
-        "val_loss": "0.6032767295837402"
+        "timestamp": "1626295240682",
+        "val_loss": "0.6024580001831055"
     },
     {
         "rev": "workspace",
         "step": "1",
-        "timestamp": "1626289846849",
-        "val_loss": "0.4354352056980133"
+        "timestamp": "1626295241584",
+        "val_loss": "0.4325583875179291"
     },
     {
         "rev": "workspace",
         "step": "2",
-        "timestamp": "1626289847748",
-        "val_loss": "0.3738841712474823"
+        "timestamp": "1626295242529",
+        "val_loss": "0.37362468242645264"
     }
 ]
     },
@@ -188,22 +188,22 @@
     "data": {
         "values": [
     {
-        "accuracy": "0.7548166513442993",
         "rev": "workspace",
         "step": "0",
-        "timestamp": "1626289845820"
+        "timestamp": "1626295240683",
+        "val_accuracy": "0.8629999756813049"
     },
     {
-        "accuracy": "0.8714500069618225",
         "rev": "workspace",
         "step": "1",
-        "timestamp": "1626289846849"
+        "timestamp": "1626295241584",
+        "val_accuracy": "0.8898000121116638"
     },
     {
-        "accuracy": "0.8894666433334351",
         "rev": "workspace",
         "step": "2",
-        "timestamp": "1626289847748"
+        "timestamp": "1626295242530",
+        "val_accuracy": "0.8995000123977661"
     }
 ]
     },
@@ -220,9 +220,9 @@
             "title": "step"
         },
         "y": {
-            "field": "accuracy",
+            "field": "val_accuracy",
             "type": "quantitative",
-            "title": "accuracy",
+            "title": "val_accuracy",
             "scale": {
                 "zero": false
             }

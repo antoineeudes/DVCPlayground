@@ -50,12 +50,12 @@ stages:
     params:
       params.yaml:
         train.min_split: 88
-        train.n_est: 100
+        train.n_est: 250
         train.seed: 20170428
     outs:
     - path: model.pkl
-      md5: ecded4bed14ce164978909ed27e52d5c
-      size: 1975058
+      md5: baf739a36b5b90a68627e265d2c11a5b
+      size: 4877684
   evaluate:
     cmd: python src/evaluate.py model.pkl data/features scores.json prc.json roc.json
     deps:
@@ -64,29 +64,29 @@ stages:
       size: 9389435
       nfiles: 2
     - path: model.pkl
-      md5: ecded4bed14ce164978909ed27e52d5c
-      size: 1975058
+      md5: baf739a36b5b90a68627e265d2c11a5b
+      size: 4877684
     - path: src/evaluate.py
       md5: fb7b5209c9237ea6cf63550e5fe9b817
       size: 1943
     outs:
     - path: prc.json
-      md5: 3bc359fae5952a4790bcd8665a70abda
-      size: 137203
+      md5: 303471e4d812701acea0074c50edf075
+      size: 141839
     - path: roc.json
-      md5: 2d908d6f6e849dda59adb8385a7eb365
-      size: 41354
+      md5: b0b313bda6da3804933b44467e02a2df
+      size: 23707
     - path: scores.json
-      md5: f8816c478d52030ebd137590198e1a27
-      size: 72
+      md5: 8b830f4290307882cb920914f1e8fefe
+      size: 73
   test-mnist:
     cmd: python test_mnist.py
     deps:
     - path: test_mnist.py
-      md5: cece99136e94315ea0cdb9636cb68740
-      size: 1493
+      md5: bc1c5206552867a0f8244706f243341d
+      size: 1513
     outs:
     - path: training_metrics
-      md5: 0eae9d529a8079512860679519d2dd1e.dir
-      size: 532
+      md5: fb76d293ba14787e2f7b86a68d76df7b.dir
+      size: 531
       nfiles: 4
