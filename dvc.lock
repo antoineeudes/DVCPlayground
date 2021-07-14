@@ -30,52 +30,52 @@ stages:
       size: 2414
     params:
       params.yaml:
-        featurize.max_features: 200
+        featurize.max_features: 20
         featurize.ngrams: 1
     outs:
     - path: data/features
-      md5: 5b52f5adcb140064883a9f4c7a7b00a1.dir
-      size: 5103417
+      md5: cb62b129bd8067678ece35a88774ddfb.dir
+      size: 1887593
       nfiles: 2
   train:
     cmd: python src/train.py data/features model.pkl
     deps:
     - path: data/features
-      md5: 5b52f5adcb140064883a9f4c7a7b00a1.dir
-      size: 5103417
+      md5: cb62b129bd8067678ece35a88774ddfb.dir
+      size: 1887593
       nfiles: 2
     - path: src/train.py
       md5: 9ab95496b29b6ea3418bbf20b9fe3473
       size: 964
     params:
       params.yaml:
-        train.min_split: 64
-        train.n_est: 100
+        train.min_split: 12
+        train.n_est: 300
         train.seed: 20170428
     outs:
     - path: model.pkl
-      md5: 8c5f3c3a917e7e8bb89b42eff81111d4
-      size: 2891244
+      md5: 26a349dc537f7ea365c11e3cb3ba8cb1
+      size: 17082167
   evaluate:
     cmd: python src/evaluate.py model.pkl data/features scores.json prc.json roc.json
     deps:
     - path: data/features
-      md5: 5b52f5adcb140064883a9f4c7a7b00a1.dir
-      size: 5103417
+      md5: cb62b129bd8067678ece35a88774ddfb.dir
+      size: 1887593
       nfiles: 2
     - path: model.pkl
-      md5: 8c5f3c3a917e7e8bb89b42eff81111d4
-      size: 2891244
+      md5: 26a349dc537f7ea365c11e3cb3ba8cb1
+      size: 17082167
     - path: src/evaluate.py
       md5: fb7b5209c9237ea6cf63550e5fe9b817
       size: 1943
     outs:
     - path: prc.json
-      md5: 8c50e95c2417564595786ae47ab675a3
-      size: 143571
+      md5: e13e9613daad29097d1fa64fade13311
+      size: 116650
     - path: roc.json
-      md5: 40123bf619e1d643ae668a4d803a115e
-      size: 40967
+      md5: fc794cd3db28ac57713e5d61d7732e68
+      size: 78109
     - path: scores.json
-      md5: cf8d9fe508c958e27226f7804b46bd4c
-      size: 73
+      md5: 90b52b445fb1a134aa703ec7b7e32775
+      size: 75
