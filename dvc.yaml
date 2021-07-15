@@ -52,3 +52,22 @@ stages:
       training_metrics:
         summary: true
         html: true
+  checkpoints-playground-train:
+    cmd: python checkpoints-playground/train.py
+    deps:
+    - checkpoints-playground/data/MNIST
+    - checkpoints-playground/train.py
+    params:
+    - checkpoints-playground.lr
+    - checkpoints-playground.seed
+    - checkpoints-playground.weight_decay
+    outs:
+    - checkpoints-playground/model.pt:
+        checkpoint: true
+    plots:
+    - checkpoints-playground/predictions.json:
+        cache: false
+    live:
+      dvclivecheckpoints:
+        summary: true
+        html: true
