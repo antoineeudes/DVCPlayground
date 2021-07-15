@@ -49,6 +49,6 @@ stages:
     deps:
     - test_mnist.py
     live:
-      test_mnist_metrics:
+      training_metrics:
         summary: true
         html: true

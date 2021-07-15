@@ -83,10 +83,10 @@ stages:
     cmd: python test_mnist.py
     deps:
     - path: test_mnist.py
-      md5: bc1c5206552867a0f8244706f243341d
-      size: 1513
+      md5: cece99136e94315ea0cdb9636cb68740
+      size: 1493
     outs:
     - path: training_metrics
-      md5: fb76d293ba14787e2f7b86a68d76df7b.dir
-      size: 531
+      md5: 0eae9d529a8079512860679519d2dd1e.dir
+      size: 532
       nfiles: 4
