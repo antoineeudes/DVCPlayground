@@ -56,4 +56,3 @@ stages:
       training_metrics:
         summary: true
         html: true
-

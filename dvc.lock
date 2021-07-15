@@ -30,23 +30,23 @@ stages:
       size: 2414
     params:
       params.yaml:
-        featurize.max_features: 800
+        featurize.max_features: 700
         featurize.ngrams: 4
     outs:
     - path: data/features
-      md5: 58b41cae9dc6d69994a9dd280bd87523.dir
-      size: 9389435
+      md5: abb6ca658e0ecebf8bb8c9db998c5a27.dir
+      size: 9011999
       nfiles: 2
   train:
     cmd: python src/train.py data/features model.pkl
     deps:
     - path: data/features
-      md5: 58b41cae9dc6d69994a9dd280bd87523.dir
-      size: 9389435
+      md5: abb6ca658e0ecebf8bb8c9db998c5a27.dir
+      size: 9011999
       nfiles: 2
     - path: src/train.py
-      md5: 9ab95496b29b6ea3418bbf20b9fe3473
-      size: 964
+      md5: edf58309e3482b25f7bbfdf17511b1af
+      size: 965
     params:
       params.yaml:
         train.min_split: 88
@@ -54,30 +54,30 @@ stages:
         train.seed: 20170428
     outs:
     - path: model.pkl
-      md5: baf739a36b5b90a68627e265d2c11a5b
-      size: 4877684
+      md5: 4039009b28535cd7bcdc5441af062b30
+      size: 5049440
   evaluate:
     cmd: python src/evaluate.py model.pkl data/features scores.json prc.json roc.json
     deps:
     - path: data/features
-      md5: 58b41cae9dc6d69994a9dd280bd87523.dir
-      size: 9389435
+      md5: abb6ca658e0ecebf8bb8c9db998c5a27.dir
+      size: 9011999
       nfiles: 2
     - path: model.pkl
-      md5: baf739a36b5b90a68627e265d2c11a5b
-      size: 4877684
+      md5: 4039009b28535cd7bcdc5441af062b30
+      size: 5049440
     - path: src/evaluate.py
       md5: fb7b5209c9237ea6cf63550e5fe9b817
       size: 1943
     outs:
     - path: prc.json
-      md5: 303471e4d812701acea0074c50edf075
-      size: 141839
+      md5: 59832f1af657577783042f6a453b91b5
+      size: 132428
     - path: roc.json
-      md5: b0b313bda6da3804933b44467e02a2df
-      size: 23707
+      md5: d6436b4823b64c5349db02db96ae3e21
+      size: 21950
     - path: scores.json
-      md5: 8b830f4290307882cb920914f1e8fefe
+      md5: 0dd3da5d96cc0837a9e282199113e6b1
       size: 73
   test-mnist:
     cmd: python test_mnist.py
